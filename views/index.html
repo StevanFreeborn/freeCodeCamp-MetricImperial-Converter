@@ -28,7 +28,15 @@
         <div id='testui'>
             <h3 style="text-align: left">Front-End</h3>
             <form id="convertForm" class="border">
-                <input type="text" id="convertField" name="input" placeholder="3.1mi" style="width: 200px">
+                <input type="text" id="convertNumber" name="number" placeholder="3.1" required>
+                <select id="convertUnit" name="unit" required>
+                    <option value="" disabled selected>select unit</option>
+                    <option value="gal">gal</option>
+                    <option value="L">L</option>
+                    <option value="mi">mi</option>
+                    <option value="lbs">lbs</option>
+                    <option value="kg">kg</option>
+                </select>
                 <input id="convert" type="submit" value='Convert!'>
             </form>
             <p id='result'></p>
@@ -42,10 +50,15 @@
         $(function () {
             $('#convertForm').submit(function (event) {
                 event.preventDefault();
+
+                const formData = $('#convertForm').serializeArray();
+
+                const data = `input=${formData[0].value}${formData[1].value}`
+
                 $.ajax({
                     url: '/api/convert',
                     type: 'get',
-                    data: $('#convertForm').serialize(),
+                    data: data,
                     success: function (data) {
                         $('#result').text(data.string || data);
                         $('#jsonResult').text(JSON.stringify(data));
