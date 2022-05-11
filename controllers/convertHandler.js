@@ -48,7 +48,7 @@ function ConvertHandler() {
     if (number < 0) return error;
 
     return parseFloat(number);
-    
+
   };
 
   this.getUnit = function (input) {
@@ -65,7 +65,9 @@ function ConvertHandler() {
     // return error if no match is in input
     if (!input.match(unitRegex)) return error;
 
-    const unit = input.match(unitRegex)[0].toLowerCase();
+    let unit = input.match(unitRegex)[0].toLowerCase();
+
+    if (unit == 'l') unit = unit.toUpperCase();
 
     // if matched unit is not in valid units return error
     if (!validUnits.includes(unit)) return error;

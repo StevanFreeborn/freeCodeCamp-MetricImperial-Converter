@@ -1,9 +1,9 @@
 const units = {
     gal: {
         name: 'gallon',
-        returnUnit: 'l'
+        returnUnit: 'L'
     },
-    l: {
+    L: {
         name: 'liter',
         returnUnit: 'gal'
     },
