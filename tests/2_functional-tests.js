@@ -18,7 +18,7 @@ suite('Functional Tests', function () {
 
             assert.equal(res.status, 200);
             assert.equal(res.type, 'application/json');
-            assert.equal(res.text, '{"initNum":10,"initUnit":"L","returnNum":2.64172,"returnUnit":"gal","string":"10 liter converts to 2.64172 gallon"}')
+            assert.equal(res.text, '{"initNum":10,"initUnit":"L","returnNum":2.64172,"returnUnit":"gal","string":"10 liters converts to 2.64172 gallons"}')
 
         });
 
