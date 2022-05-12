@@ -18,7 +18,7 @@ suite('Functional Tests', function () {
 
             assert.equal(res.status, 200);
             assert.equal(res.type, 'application/json');
-            assert.equal(res.text, '{"initNum":10,"initUnit":"L","returnNum":2.64172,"returnUnit":"gal","string":"10 liters converts to 2.64172 gallons"}')
+            assert.equal(res.text, '{"initNum":10,"initUnit":"L","returnNum":2.64172,"returnUnit":"gal","string":"10 liter converts to 2.64172 gallon"}')
 
         });
 
@@ -36,7 +36,7 @@ suite('Functional Tests', function () {
 
             if (err) console.log(err);
 
-            assert.equal(res.status, 400);
+            assert.equal(res.status, 200);
             assert.equal(res.type, 'text/html');
             assert.equal(res.text, "invalid unit")
 
@@ -56,7 +56,7 @@ suite('Functional Tests', function () {
 
             if (err) console.log(err);
 
-            assert.equal(res.status, 400);
+            assert.equal(res.status, 200);
             assert.equal(res.type, 'text/html');
             assert.equal(res.text, "invalid number")
 
@@ -76,9 +76,28 @@ suite('Functional Tests', function () {
 
             if (err) console.log(err);
 
-            assert.equal(res.status, 400);
+            assert.equal(res.status, 200);
             assert.equal(res.type, 'text/html');
             assert.equal(res.text, "invalid number and unit")
+
+        });
+
+        done();
+
+    });
+
+    test('Test GET /api/convert with no number', (done) => {
+
+        const input = 'kg';
+
+        chai.request(server)
+        .get(`/api/convert?input=${input}`)
+        .end((err, res) => {
+            if (err) console.log(err);
+
+            assert.equal(res.status, 200);
+            assert.equal(res.type, 'application/json');
+            assert.equal(res.text, '{"initNum":1,"initUnit":"kg","returnNum":2.20462,"returnUnit":"lbs","string":"1 kilograms converts to 2.20462 pounds"}')
 
         });
 

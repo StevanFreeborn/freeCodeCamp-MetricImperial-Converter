@@ -134,7 +134,7 @@ suite('Unit Tests', function () {
         test('12. Convert l to gal', (done) => {
 
             const initNum = 3.78541;
-            const initUnit = 'l';
+            const initUnit = 'L';
             assert.equal(convertHandler.convert(initNum, initUnit), 1);
 
             done();
@@ -165,7 +165,7 @@ suite('Unit Tests', function () {
 
             const initNum = 1;
             const initUnit = 'lbs';
-            assert.equal(convertHandler.convert(initNum, initUnit), 0.453592);
+            assert.equal(convertHandler.convert(initNum, initUnit), 0.45359);
 
             done();
 

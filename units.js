@@ -12,7 +12,7 @@ const units = {
         returnUnit: 'km'
     },
     km: {
-        name: 'kilometer',
+        name: 'kilometers',
         returnUnit: 'mi'
     },
     lbs: {
