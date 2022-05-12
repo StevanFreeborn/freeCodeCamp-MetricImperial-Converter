@@ -1,10 +1,10 @@
 const units = {
     gal: {
-        name: 'gallon',
+        name: 'gallons',
         returnUnit: 'L'
     },
     L: {
-        name: 'liter',
+        name: 'liters',
         returnUnit: 'gal'
     },
     mi: {
